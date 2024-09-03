@@ -1,10 +1,6 @@
-import { FC, useState } from "react";
+import {  useState } from "react";
 // import Button from "../../../components/reUse/Button";
 import { MdCheck, MdClose } from "react-icons/md";
-import toast from "react-hot-toast";
-
-// import "react-datepicker/dist/react-datepicker.css";
-import { mutate } from "swr";
 import Button from "../../components/MainReUse/Button";
 // import {
 //   useReadMyClassInfoData,
@@ -12,42 +8,40 @@ import Button from "../../components/MainReUse/Button";
 // } from "../../../pagesForStudents/hooks/useStudentHook";
 // import { makeComplains } from "../../api/studentAPI";
 
-interface iProps {
-  props?: any;
-}
-
-const MakeComplains: FC<iProps> = ({ props }) => {
+const MakeComplains = () => {
   const [subject, setSubject] = useState<string>("");
   const [period, setPeriod] = useState<string>("");
 
-//   const { studentInfo } = useStudentInfo();
+  //   const { studentInfo } = useStudentInfo();
 
   // api/view-subject-assignment/${subjectID}
 
-//   const onCreateAssignment = () => {
-//     makeComplains(studentInfo?._id, {
-//       title: period,
-//       importance: subject,
-//     })
-//       .then((res) => {
-//         console.log(res);
-//         if (res?.status === 201) {
-//           mutate(`api/view-student-complain/${studentInfo?._id}`);
-//           toast.success("Added Successfully...!");
-//         } else {
-//           toast.error(`${res?.response?.data?.message}`);
-//         }
-//       })
-//       .then(() => {
-//         setSubject("");
-//         setPeriod("");
-//       });
-//   };
+  //   const onCreateAssignment = () => {
+  //     makeComplains(studentInfo?._id, {
+  //       title: period,
+  //       importance: subject,
+  //     })
+  //       .then((res) => {
+  //         console.log(res);
+  //         if (res?.status === 201) {
+  //           mutate(`api/view-student-complain/${studentInfo?._id}`);
+  //           toast.success("Added Successfully...!");
+  //         } else {
+  //           toast.error(`${res?.response?.data?.message}`);
+  //         }
+  //       })
+  //       .then(() => {
+  //         setSubject("");
+  //         setPeriod("");
+  //       });
+  //   };
 
   return (
     <div>
       {/* <Toaster position="top-center" reverseOrder={true} /> */}
-      <div className="flex justify-center items-center text-[20px] font-semibold">Reporting Issues or Complaints</div>
+      <div className="flex justify-center items-center text-[20px] font-semibold">
+        Reporting Issues or Complaints
+      </div>
       <div className=" text-[13px] font-medium">
         <label
           htmlFor="mark_complains"
@@ -140,7 +134,7 @@ const MakeComplains: FC<iProps> = ({ props }) => {
                 <label
                   htmlFor="mark_complains"
                   className="bg-blue-950 text-white py-4 px-8 rounded-md cursor-pointer "
-                //   onClick={onCreateAssignment}
+                  //   onClick={onCreateAssignment}
                 >
                   Publish This Complain
                 </label>

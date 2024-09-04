@@ -33,11 +33,11 @@ app.use((0, express_session_1.default)({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        maxAge: 1000 * 60 * 24 * 60,
-        sameSite: "lax",
-        secure: false,
-    },
+cookie: {
+  maxAge: 1000 * 60 * 24 * 60,
+  sameSite: "None", 
+  secure: process.env.NODE_ENV === 'production',
+},
     store,
 }));
 (0, mainApp_1.mainApp)(app);

@@ -20,12 +20,12 @@ const SignIn = () => {
         toast.success(res?.message);
         setLoading(false);
 
-       // const x = setTimeout(() => {
-         // window.location.reload();
-       //   clearTimeout(x);
-      //  }, 10);
+      const x = setTimeout(() => {
+        window.location.reload();
+        clearTimeout(x);
+      }, 10);
         {
-        //  !loading && navigate("/dashboard");
+        !loading && navigate("/dashboard");
         }
       } else if (res?.status !== 201) {
         toast.error(res?.data?.message);

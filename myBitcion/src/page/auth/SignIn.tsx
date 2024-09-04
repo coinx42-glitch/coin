@@ -25,7 +25,7 @@ const SignIn = () => {
           clearTimeout(x);
         }, 10);
         {
-          !loading && navigate("/dashboard");
+        //  !loading && navigate("/dashboard");
         }
       } else if (res?.status !== 201) {
         toast.error(res?.data?.message);

@@ -22,7 +22,7 @@ const portServer = process.env.PORT;
 const port = parseInt(portServer);
 // Configure CORS
 const corsOptions = {
-    origin: "https://coin-x.online",
+    origin: process.env.APP_URL_DEPLOY,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
 };

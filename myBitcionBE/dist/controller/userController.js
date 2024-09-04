@@ -88,6 +88,13 @@ const signInUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                     });
                     req.session.isAuth = true;
                     req.session.data = user._id;
+                    req.session.save((err) => {
+  if (err) {
+    console.log('Session save error: ', err);
+  } else {
+    console.log('Session saved successfully');
+  }
+});
                     return res.status(201 /* HTTP.CREATED */).json({
                         message: "This user has successfully been logged-in",
                         data: encrypted,

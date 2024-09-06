@@ -2,14 +2,15 @@ import useSWR from "swr";
 import { readUser, readUserCookie, viewUserByName } from "../page/api/userAPI";
 
 export const useUserCookie = () => {
-  const { data, error } = useSWR("/get-user-cookie", readUserCookie);
+  const { data, error } = useSWR("/get-user-cookies", readUserCookie);
   const isLoading = !data && !error;
   return { data, isLoading };
 };
 
 export const useUserData = () => {
   const { data: userData } = useUserCookie();
-  const userID = userData?.data.data;
+  console.log(userData)
+  const userID = userData?.user?._id;
 
   const { data, error } = useSWR(userID ? `get-user/${userID}` : null, () =>
     readUser(userID)

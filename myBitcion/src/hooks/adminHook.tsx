@@ -30,7 +30,7 @@ export const getAdminDetails = () => {
   const { data: adminID } = useAdminCookie();
   const adminData = useAdminById(adminID?.admin?._id);
 
-  return { data: adminData };
+  return { data: adminData.data };
 };
 
 // Hook to get admin by name

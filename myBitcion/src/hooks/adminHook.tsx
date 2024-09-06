@@ -28,7 +28,7 @@ export const useAdminById = (adminID: string) => {
 
 export const getAdminDetails = () => {
   const { data: adminID } = useAdminCookie();
-  const adminData = useAdminById(adminID?.data?.data)?.data?.data;
+  const adminData = useAdminById(adminID?.admin?._id);
 
   return { data: adminData };
 };

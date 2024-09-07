@@ -7,17 +7,20 @@ import {
   logoutAdmin,
   readAdminCookie,
 } from "../page/api/adminApi";
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode, JwtPayload } from "jwt-decode";
 
-// Hook to read admin cookie
+interface AdminDecodedToken extends JwtPayload {
+  id?: string; // id might be undefined, so it's optional
+}
 
 export const useAdminCookie = () => {
   const token = localStorage.getItem("token");
 
-  let id: string;
+  let id: string | undefined;
   if (token) {
     try {
-      id = jwtDecode(token)?.id;
+      const decodedToken = jwtDecode<AdminDecodedToken>(token); // Cast the result to AdminDecodedToken
+      id = decodedToken?.id; // Access the id if it exists
     } catch (error) {
       console.error("Error decoding admin token:", error);
     }
@@ -25,12 +28,8 @@ export const useAdminCookie = () => {
 
   const { data, error, isLoading } = useSWR(
     id ? `/get-admin-cookie` : null, // Make request only if ID is valid
-    () => getAdminById(id),
-    {
-      shouldRetryOnError: false, // Prevent unnecessary retries on error
-    }
+    () => getAdminById(id!)
   );
-
 
   return { data, error, isLoading };
 };

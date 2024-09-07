@@ -6,7 +6,11 @@ export const loginAdmin = async (data: any) => {
   try {
     return await axios
       .post(`${URL}/signin`, data, { withCredentials: true })
-      .then((res: any) => res?.data);
+      .then((res: any) => {
+        if (res.status === 200)
+          localStorage.setItem("token", JSON.stringify(res.data.token));
+        return res?.data;
+      });
   } catch (error: any) {
     return error?.response;
   }

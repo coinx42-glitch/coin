@@ -5,7 +5,6 @@ import {
   getAdminUsers,
   getAdminComplaints,
   logoutAdmin,
-  readAdminCookie,
 } from "../page/api/adminApi";
 import { jwtDecode, JwtPayload } from "jwt-decode";
 
@@ -35,10 +34,9 @@ export const useAdminCookie = () => {
 };
 // Hook to get admin by ID
 export const useAdminById = (adminID: string) => {
-  const { data, error } = useSWR(adminID ? `/getById/${adminID}` : null, () =>
+  const { data, error, isLoading } = useSWR(adminID ? `/getById/${adminID}` : null, () =>
     getAdminById(adminID)
   );
-  const isLoading = !data && !error;
   return { data, error, isLoading };
 };
 

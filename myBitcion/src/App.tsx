@@ -2,7 +2,9 @@
 import RouterScreen from "./router/RouterScreen";
 
 const App = () => {
-		useEffect(() => {
+const {data} = useUserCookie()
+
+	useEffect(() => {
 		console.countReset(data)
 	}, [data])
 	return (

@@ -19,29 +19,28 @@ export const useUserCookie = () => {
     }
   }
 
-  const { data, error } = useSWR(id ? `/view-user/${id}` : null, () => readUser(id!)); // Ensure id is non-null with !
+  const { data, error, isLoading } = useSWR(id ? `/view-user/${id}` : null, () => readUser(id!)); // Ensure id is non-null with !
 
-  const isLoading = !data && !error;
+  
   return { data, isLoading, error };
 };
 export const useUserData = () => {
   const { data: userData } = useUserCookie();
   const userID = userData?.user?._id;
   
-  const { data, error } = useSWR(userID ? `get-user/${userID}` : null, () =>
+  const { data, error , isLoading} = useSWR(userID ? `get-user/${userID}` : null, () =>
     readUser(userID)
 );
 
-  const isLoading = !data && !error;
+ 
 
   return { data, isLoading, error };
 };
 
 export const useUserDataByName = (userName: string) => {
-  const { data, error } = useSWR(
+  const { data, error, isLoading } = useSWR(
     userName ? `api/view-school/${userName}` : null,
     () => viewUserByName(userName).then((res) => res.data)
   );
-  const isLoading = !data && !error;
   return { data, isLoading, error };
 };

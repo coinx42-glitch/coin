@@ -15,16 +15,25 @@ export const registerUser = async (data: any) => {
 		console.log(error);
 	}
 };
+
 export const loginUser = async (data: any) => {
-	try {
-		return await axios
-			.post(`${URL}/login-account`, data, { withCredentials: true })
-			.then((res: any) => {
-				return res?.data;
-			});
-	} catch (error: any) {
-		return error?.response;
-	}
+  try {
+    return await axios
+      .post(`${URL}/login-account`, data, { withCredentials: true })
+      .then((res: any) => {
+        return res?.data;
+      })
+      .then((res: { token: string; status: number, message: string }) => {
+
+        if (res.status === 201)
+          localStorage.setItem("token", JSON.stringify(res.token));
+
+        return res
+      });
+  } catch (error: any) {
+    console.error(error);
+    return error?.response;
+  }
 };
 
 export const verifyUser = async (data: any) => {

@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const adminController_1 = require("../controller/adminController");
+const router = (0, express_1.Router)();
+router.post("/create", adminController_1.createAdmin);
+router.post("/verify", adminController_1.verifyAdmin);
+router.post("/signin", adminController_1.signInAdmin);
+router.get("/all", adminController_1.getAllAdmins);
+router.get("/getById/:adminID", adminController_1.getAdminById);
+router.get("/get-admin-cookie", adminController_1.getCookieAdmin);
+router.patch("/:adminID/update", adminController_1.updateAdmin);
+router.delete("/:adminID/delete", adminController_1.deleteAdmin);
+exports.default = router;

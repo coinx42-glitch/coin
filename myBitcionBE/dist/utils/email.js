@@ -36,7 +36,7 @@ const verifiedEmail = (user) => __awaiter(void 0, void 0, void 0, function* () {
             service: "gmail",
             auth: {
                 type: "OAuth2",
-                user: "abbeyrufai234@gmail.com",
+                user: "coinx42@gmail.com",
                 clientSecret: GOOGLE_SECRET,
                 clientId: GOOGLE_ID,
                 refreshToken: GOOGLE_REFRESH,

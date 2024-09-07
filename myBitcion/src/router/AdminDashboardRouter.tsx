@@ -57,6 +57,41 @@ const AdminDashboardRouter = createBrowserRouter([
     ],
   },
   {
+    path: "/",
+    element: (
+      <AdminPrivateRouter>
+        <AdminLayout />
+      </AdminPrivateRouter>
+    ),
+    children: [
+      {
+        index: true,
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "settings",
+        element: <AdminSettings />,
+      },
+      {
+        path: "manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "manage-transactions",
+        element: <ManageTransactions />,
+      },
+      {
+        path: "complaints",
+        element: <Complaints />,
+      },
+    ],
+  },
+  {
     path: "*",
     element: <Loading />,
   },

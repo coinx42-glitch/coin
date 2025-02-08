@@ -9,6 +9,7 @@ import ManageTransactions from "../page/admin/ManageTransactions";
 import Complaints from "../page/admin/Complaints";
 import AuthLayout from "../components/layout/AuthLayout";
 import AdminSignIn from "../page/auth/AdminSignIn";
+import ConfirmPayments from "@/page/admin/confirm-payments";
 
 const AdminDashboardRouter = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const AdminDashboardRouter = createBrowserRouter([
       {
         path: "complaints",
         element: <Complaints />,
+      },
+      {
+        path: "confirm-payments",
+        element: <ConfirmPayments />,
       },
     ],
   },

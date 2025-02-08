@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
 const URL: string = "https://coin-eci5.onrender.com/api/v1/admin";
+// const URL: string = "http://localhost:2244/api/v1/admin";
 
 export const loginAdmin = async (data: any) => {
   try {

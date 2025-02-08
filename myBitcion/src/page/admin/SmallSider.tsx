@@ -20,16 +20,18 @@ const navItems = [
     label: "Manage Transactions",
     icon: <FaWallet />,
   },
+
   {
     path: "/admin/confirm-payments",
     label: "Confirm Payments",
     icon: <FaAmazonPay />,
   },
+
   { path: "/admin/complaints", label: "Complaints", icon: <MdReport /> },
   { path: "/admin/settings", label: "Settings", icon: <MdSettings /> },
 ];
 
-const AdminSider = () => {
+const SmallSider = () => {
   const { data } = getAdminDetails();
 
   return (
@@ -76,4 +78,4 @@ const AdminSider = () => {
   );
 };
 
-export default AdminSider;
+export default SmallSider;

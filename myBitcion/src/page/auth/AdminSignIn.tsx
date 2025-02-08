@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/MainReUse/Input";
 import Button from "../../components/MainReUse/Button";

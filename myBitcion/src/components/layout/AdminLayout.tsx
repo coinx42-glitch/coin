@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Header from "../MainStatic/Header";
+// import Header from "../MainStatic/Header";
 import CryptoHeader from "../static/CryptoHeader";
 import AdminSider from "../../page/admin/DashboardSider";
+import SecHeader from "../MainStatic/SecHeader";
 
 const Layout = () => {
   return (
@@ -11,8 +12,13 @@ const Layout = () => {
       </div>
       <div className="flex w-[calc(100%)] justify-end">
         <div className="flex flex-col w-[100%] transition-all duration-300 md:w-[calc(100%-250px)] justify-end">
-          <CryptoHeader />
-          <Header />
+          <div>
+            <CryptoHeader />
+          </div>
+          <div className="mb-16">
+            <SecHeader />
+          </div>
+
           <div
             className={`min-h-[calc(100vh-72px)] p-4 m-2 border rounded-md mt-24 relative `}
           >

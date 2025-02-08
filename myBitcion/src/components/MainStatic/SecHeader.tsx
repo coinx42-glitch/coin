@@ -5,11 +5,12 @@ import { MdForwardToInbox } from "react-icons/md";
 import pic from "../../assets/Dog.png";
 import { useState } from "react";
 import { MdMenu } from "react-icons/md";
-
+import { NavLink } from "react-router-dom";
 import MobileScreen from "./MobileScreen";
 import { useUserCookie, useUserDataByName } from "../../hooks/userHooks";
+import SmallSider from "@/page/admin/SmallSider";
 
-const Header = () => {
+const SecHeader = () => {
   const [search, setSearch] = useState<string>("");
   const [menu, setMenu] = useState(false);
   const { data: userCookie, isLoading: isUserCookieLoading } = useUserCookie();
@@ -81,7 +82,7 @@ const Header = () => {
             className=" w-full absolute bg-[rgba(0,0,0,0.2)] h-screen left-2 top-[70px] transition-all duration-500"
             onClick={toggle}
           >
-            <MobileScreen />
+            <SmallSider />
           </div>
         ) : null}
       </div>
@@ -89,4 +90,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SecHeader;
